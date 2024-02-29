@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('flappybirdbg.png');  
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #playerSelection {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .playerOption {
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .playerOption img {
+            width: 100px;
+        }
+    </style>
+    <script src="flappybird.js" defer></script>
+    <script>
+        function selectPlayer(player) {
+            if (player === 1) {
+                birdImg.src = "./flappybird.png";
+            } else if (player === 2) {
+                birdImg.src = "./flappybird2.png";
+            }
+            startGame();
+        }
+
+        function startGame() {
+            document.getElementById("playerSelection").style.display = "none";
+            document.getElementById("board").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div id="playerSelection">
+        <h1>Choose Your Bird</h1>
+        <div id="player1" class="playerOption" onclick="selectPlayer(1)">
+            <img src="./flappybird.png" alt="Player 1">
+        </div>
+        <div id="player2" class="playerOption" onclick="selectPlayer(2)">
+            <img src="./flappybird2.png" alt="Player 2">
+        </div>
+    </div>
+    <canvas id="board" style="display: none;"></canvas>
+</body>
+</html>
